@@ -1,16 +1,11 @@
-input ← 10↑•file.Lines "./input"
-them_you ← ((-⟜'A'⊑)∾(-⟜'X'¯1⊸⊑))¨input
-them_you ← (⊣⌽∾○(23⊸|∘-⟜'A'⊑)⊢)¨input
-outcome
+input ← (-⟜"A X")¨•file.Lines "./input"
+game ← -⊸⌽⟜3‿6‿0∘⊑¨input
+you ← ⊑∘⌽¨input
+total ← +´ you⊑¨game + 1 + you
 
-A X = 3
-A Y = 0
-A Z = 6
+•Show "Sol'n 1: "‿total
 
-B X = 6
-B Y = 3
-B Z = 0
-
-C X = 0
-C Y = 6
-C Z = 3
+# P2
+play ← game (⊑⊣⊐⊢⊑0‿3‿6˙)¨ you
+newtotal ← +´ play⊑¨game + 1 + play
+•Show "Sol'n 2: "‿newtotal
